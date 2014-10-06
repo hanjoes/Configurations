@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ln -s ~/.vim/dotfile/.bashrc ~/.bashrc 
-ln -s ~/.vim/dotfile/.vimrc ~/.vimrc
+ln -s ~/Configurations/dotfile/.bashrc ~/.bashrc 
+ln -s ~/Configurations/dotfile/.vimrc ~/.vimrc
