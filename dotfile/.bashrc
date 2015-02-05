@@ -10,21 +10,27 @@ fi
 
 # prompt setup
 
-PROMPT_COMMAND='PS1="`python ~/.bash/bash-git-prompt/parrt-prompt.py`"'
+# PROMPT_COMMAND='PS1="`python ~/Configurations/bash-git-prompt/parrt-prompt.py`"'
 
-#IP=`/sbin/ifconfig eth0 | sed -n '4s/^[[:space:]]\{1,\}inet[[:space:]]\{1,\}\([[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\).*$/\1/p'`
+IP=`/sbin/ifconfig en1 | sed -n '4s/^[[:space:]]\{1,\}inet[[:space:]]\{1,\}\([[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\).*$/\1/p'`
+export PS1='[\u@\[\e[1;31m\]$IP\[\e[0m\] \w]$ '
 
-export PATH=$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin::~/bin:/usr/local/jdk1.8.0_20/bin
-export JAVA_HOME=/usr/local/jdk1.8.0_20/
+export PATH=$PATH:/usr/local/apache-maven-3.2.3/bin
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
+export CLASSPATH=.:/usr/local/lib/antlr-4.4-complete.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/lib/tools.jar
 
 # set system limits
 ulimit -c unlimited
 
 # aliases
-alias ll='ls --color -l'
-alias la='ls --color -a'
-alias ls='ls --color'
-alias mysql='mysql --prompt="\u@\d:\h mysql> "'
+alias ll='ls -Gl'
+alias la='ls -Ga'
+alias ls='ls -G'
+alias antlr4='java -jar /usr/local/lib/antlr-4.4-complete.jar'
+alias grun='java org.antlr.v4.runtime.misc.TestRig'
+
+# alias mysql='mysql --prompt="\u@\d:\h mysql> "'
+
 
 # set vim as default pager:
 export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
