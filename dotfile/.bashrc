@@ -17,7 +17,7 @@ export PS1='[\u@\[\e[1;31m\]$IP\[\e[0m\] \w]$ '
 
 export PATH=$PATH:/usr/local/apache-maven-3.2.3/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
-export CLASSPATH=.:/usr/local/lib/antlr-4.4-complete.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/lib/tools.jar
+export CLASSPATH=.:/usr/local/lib/antlr-4.5-complete.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/lib/tools.jar
 
 # set system limits
 ulimit -c unlimited
@@ -26,8 +26,11 @@ ulimit -c unlimited
 alias ll='ls -Gl'
 alias la='ls -Ga'
 alias ls='ls -G'
-alias antlr4='java -jar /usr/local/lib/antlr-4.4-complete.jar'
+alias antlr4='java -jar /usr/local/lib/antlr-4.5-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
+alias rp='screen /dev/cu.usbserial 115200l'
+alias j='java'
+alias jc='javac'
 
 # alias mysql='mysql --prompt="\u@\d:\h mysql> "'
 
