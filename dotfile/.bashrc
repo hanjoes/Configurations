@@ -15,7 +15,7 @@ fi
 IP=`/sbin/ifconfig en1 | sed -n '4s/^[[:space:]]\{1,\}inet[[:space:]]\{1,\}\([[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\.[[:digit:]]\{1,\}\).*$/\1/p'`
 export PS1='[\u@\[\e[1;31m\]$IP\[\e[0m\] \w]$ '
 
-export PATH=$PATH:/usr/local/apache-maven-3.2.3/bin
+export PATH=$PATH:/usr/local/apache-maven-3.2.3/bin:/usr/local/gcc-arm-none-eabi-4_9-2015q1/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
 export CLASSPATH=.:/usr/local/lib/antlr-4.5-complete.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/lib/tools.jar
 

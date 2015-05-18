@@ -2,25 +2,29 @@
 " General Settings.
 """""""""""""""""""""""""""""
 execute pathogen#infect()
+filetype plugin indent on
 
 set nocompatible              " be iMproved, required
+set spell
+
+"""""""""""""""""""""""""""""
+" Notes
+"""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""
 " General Settings.
 """""""""""""""""""""""""""""
-set tabstop=4
-set softtabstop=4
-set cindent
-set autoindent
-set smartindent
-set bs=2		                       " allow backspacing over everything in insert mode
-set history=50		                   " keep 50 lines of command line history
-set ruler		                       " show the cursor position all the time
-set shiftwidth=4
-set nu
-set mouse=a
-set foldmethod=syntax
-let php_folding= 1
+""set softtabstop=4
+""set cindent
+""set autoindent
+""set smartindent
+""set bs=2		                       " allow backspacing over everything in insert mode
+""set history=50		                   " keep 50 lines of command line history
+""set ruler		                       " show the cursor position all the time
+""set shiftwidth=4
+""set nu
+""set mouse=a
+""set foldmethod=syntax
 
 """""""""""""""""""""""""""""
 " character encoding
@@ -43,7 +47,7 @@ set incsearch
 set t_Co=256
 syntax on
 set hlsearch
-colorscheme molokai 
+colorscheme molokai
 
 """""""""""""""""""""""""""""
 " Tab Control
