@@ -81,5 +81,7 @@ if has("gui_running")
     set NERDTreeMouseMode=2
 endif
 
-
-
+"""""""""""""""""""""""""""""
+" VIM-Note
+"""""""""""""""""""""""""""""
+let g:notes_directories = ['~/Dropbox/Notes/','~/Dropbox/Notes/School/','~/Dropbox/Notes/Work/']
