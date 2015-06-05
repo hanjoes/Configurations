@@ -1,4 +1,4 @@
 Configurations
 ==============
 
-Some Personal Configurations.
+Seriously thinking about automation for different platforms.
