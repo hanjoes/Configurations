@@ -1,4 +1,3 @@
-"""""""""""""""""""""""""""""
 " Pathegen setup.
 """""""""""""""""""""""""""""
 "by default all plugins are in ~/.vim/bundle
@@ -17,6 +16,7 @@ set sts=4			"set softtabstop this works for <Tab> and <BS>
 set cindent			"next two lines affect the actual number of blanks for cindent
 set shiftwidth=4
 set nu
+set backspace=2			"For backwards compatibility with version 5.4 and earlier"
 ""set autoindent
 ""set smartindent
 ""set bs=2		        " allow backspacing over everything in insert mode
@@ -84,4 +84,10 @@ endif
 """""""""""""""""""""""""""""
 " VIM-Note
 """""""""""""""""""""""""""""
-let g:notes_directories = ['~/Dropbox/Notes/','~/Dropbox/Notes/School/','~/Dropbox/Notes/Work/']
+" Only for OS X
+if has("unix")
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin"
+	let g:notes_directories = ['~/Dropbox/Notes/','~/Dropbox/Notes/School/','~/Dropbox/Notes/Work/']
+    endif
+endif
