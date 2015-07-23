@@ -1,0 +1,59 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/hanjoes/Dropbox/" . "Notes/")
+ ("/" . "tmp/")
+ ("/Users/hanjoes/" . ".emacs.d/")
+ ("/Users/hanjoes/Documents/Workspace/" . "CPP/")
+ ("/Users/hanjoes/Documents/" . "Workspace/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/hanjoes/Dropbox/Notes/Work/"
+ "/Users/hanjoes/"
+ "/tmp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "working_notes.org"
+ ".emacs"
+ "test.org"
+ "test.cpp"
+ ".sqlite_history"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/hanjoes/Dropbox/Notes/Work/" (21936 32403 0 0) "working_notes.org~" "working_notes.org" "Working Notes" "Testing" "Intellij" "code" ".Working Notes.swp" "../" "./")
+
+ ("/Users/hanjoes/Dropbox/Notes/Life/" (21936 31438 0 0) "../" "./")
+
+ ("/Users/hanjoes/" (21936 31020 0 0) "VirtualBox VMs/" "Public/" "Pictures/" "NetBeansProjects/" "Music/" "Movies/" "Library/" "gwt-unitCache/" "Google Drive/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "Configurations/" "AT.postflight.21215" "AT.postflight.21146" "Applications/" ".Xauthority" ".WebStorm9/" ".vnc/" ".vimrc" ".viminfo" ".vim/" ".Trash/" ".tmux.conf" ".subversion/" ".ssh/" ".sqlitestudio/" ".sqlite_history" ".rnd" ".python_history" ".PyCharm40/" ".profile.pysave" ".profile.macports-saved_2015-05-31_at_13:49:31" ".profile.macports-saved_2015-05-31_at_13:46:17" ".profile" ".pip/" ".netbeans-derby/" ".mime.types" ".matplotlib/" ".mailcap" ".m2/" ".lesshst" ".ivy2/" ".IntelliJIdea14/" ".idlerc/" ".IdeaIC14/" ".idea/" ".hgignore_global" ".gradle/" ".gnuplot_history" ".gnupg/" ".gitignore_global" ".gitconfig" ".emacs~" ".emacs.d/" ".emacs" ".DS_Store" ".dropbox/" ".cups/" ".clion10/" ".CFUserTextEncoding" ".cache/" ".bild/" ".bashrc" ".bash_history" ".atom/" ".AndroidStudioPreview1.3/" ".android/" " ~/" "../" "./")
+
+ ("/Users/hanjoes/Dropbox/Notes/" (21936 31551 0 0) "Work/" "School/" "Life/" "Engineering/" "ComputerScience/" "Amazon NHO" ".DS_Store" "../" "./")
+
+ ("/Users/hanjoes/Dropbox/" (21936 20905 0 0) "Photos/" "Online Course/" "Notes/" "Master Project/" "Life/" "Job/" "Icon
+" "CS652/" "CS631/" ".DS_Store" ".dropbox.cache/" ".dropbox" "../" "./")
+
+ ("/tmp/" (21936 29105 0 0) "test.org" "KSOutOfProcessFetcher.501.KvQVA6MpDzYxvkzUKAnRQWNnZYg=/" "emacs501/" "com.apple.launchd.qW60kzUcnb/" "com.apple.launchd.nUGUrArMw0/" "com.apple.launchd.AYdAatbnEF/" ".last_fetch_time" ".#test.org" "#test.org#" "#test.cpp#" "##test.cpp##" "../" "./")
+
+ ("/Users/hanjoes/.emacs.d/elpa/org-20150720/" (21933 53482 0 0) "README_ELPA" "ox.elc" "ox.el" "ox-texinfo.elc" "ox-texinfo.el" "ox-publish.elc" "ox-publish.el" "ox-org.elc" "ox-org.el" "ox-odt.elc" "ox-odt.el" "ox-md.elc" "ox-md.el" "ox-man.elc" "ox-man.el" "ox-latex.elc" "ox-latex.el" "ox-icalendar.elc" "ox-icalendar.el" "ox-html.elc" "ox-html.el" "ox-beamer.elc" "ox-beamer.el" "ox-ascii.elc" "ox-ascii.el" "orgcard.pdf" "org.elc" "org.el" "org-w3m.elc" "org-w3m.el" "org-version.el" "org-timer.elc" "org-timer.el" "org-table.elc" "org-table.el" "org-src.elc" "org-src.el" "org-rmail.elc" "org-rmail.el" "org-protocol.elc" "org-protocol.el" "org-plot.elc" "org-plot.el" "org-pkg.elc" "org-pkg.el" "org-pcomplete.elc" "org-pcomplete.el" "org-mouse.elc" "org-mouse.el" "org-mobile.elc" "org-mobile.el" "org-mhe.elc" "org-mhe.el" "org-macs.elc" "org-macs.el" "org-macro.elc" "org-macro.el" "org-loaddefs.el~" "org-loaddefs.el" "org-list.elc" "org-list.el" "org-irc.elc" "org-irc.el" "org-install.el" "org-inlinetask.elc" "org-inlinetask.el" "org-info.elc" "org-info.el" "org-indent.elc" "org-indent.el" "org-id.elc" "org-id.el" "org-habit.elc" "org-habit.el" "org-gnus.elc" "org-gnus.el" "org-footnote.elc" "org-footnote.el" "org-feed.elc" "org-feed.el" "org-faces.elc" "org-faces.el" "org-eshell.elc" "org-eshell.el" "org-entities.elc" "org-entities.el" "org-element.elc" "org-element.el" "org-docview.elc" "org-docview.el" "org-datetree.elc" "org-datetree.el" "org-ctags.elc" "org-ctags.el" "org-crypt.elc" "org-crypt.el" "org-compat.elc" "org-compat.el" "org-colview.elc" "org-colview.el" "org-clock.elc" "org-clock.el" "org-capture.elc" "org-capture.el" "org-bibtex.elc" "org-bibtex.el" "org-bbdb.elc" "org-bbdb.el" "org-autoloads.el~" "org-autoloads.el" "org-attach.elc" "org-attach.el" "org-archive.elc" "org-archive.el" "org-agenda.elc" "org-agenda.el" "org" "ob.elc" "ob.el" "ob-tangle.elc" "ob-tangle.el" "ob-table.elc" "ob-table.el" "ob-sqlite.elc" "ob-sqlite.el" "ob-sql.elc" "ob-sql.el" "ob-shen.elc" "ob-shen.el" "ob-sh.elc" "ob-sh.el" "ob-screen.elc" "ob-screen.el" "ob-scheme.elc" "ob-scheme.el" "ob-scala.elc" "ob-scala.el" "ob-sass.elc" "ob-sass.el" "ob-ruby.elc" "ob-ruby.el" "ob-ref.elc" "ob-ref.el" "ob-R.elc" "ob-R.el" "ob-python.elc" "ob-python.el" "ob-plantuml.elc" "ob-plantuml.el" "ob-picolisp.elc" "ob-picolisp.el" "ob-perl.elc" "ob-perl.el" "ob-org.elc" "ob-org.el" "ob-octave.elc" "ob-octave.el" "ob-ocaml.elc" "ob-ocaml.el" "ob-mscgen.elc" "ob-mscgen.el" "ob-maxima.elc" "ob-maxima.el" "ob-matlab.elc" "ob-matlab.el" "ob-makefile.elc" "ob-makefile.el" "ob-lob.elc" "ob-lob.el" "ob-lisp.elc" "ob-lisp.el" "ob-lilypond.elc" "ob-lilypond.el" "ob-ledger.elc" "ob-ledger.el" "ob-latex.elc" "ob-latex.el" "ob-keys.elc" "ob-keys.el" "ob-js.elc" "ob-js.el" "ob-java.elc" "ob-java.el" "ob-io.elc" "ob-io.el" "ob-haskell.elc" "ob-haskell.el" "ob-gnuplot.elc" "ob-gnuplot.el" "ob-fortran.elc" "ob-fortran.el" "ob-exp.elc" "ob-exp.el" "ob-eval.elc" "ob-eval.el" "ob-emacs-lisp.elc" "ob-emacs-lisp.el" "ob-dot.elc" "ob-dot.el" "ob-ditaa.elc" "ob-ditaa.el" "ob-css.elc" "ob-css.el" "ob-core.elc" "ob-core.el" "ob-comint.elc" "ob-comint.el" "ob-clojure.elc" "ob-clojure.el" "ob-calc.elc" "ob-calc.el" "ob-C.elc" "ob-C.el" "ob-awk.elc" "ob-awk.el" "ob-asymptote.elc" "ob-asymptote.el" "etc/" "dir" "COPYING" "../" "./")
+
+ ("/Applications/Emacs.app/Contents/Resources/info/" (21800 6518 0 0) "woman.info.gz" "wisent.info.gz" "widget.info.gz" "viper.info.gz" "vip.info.gz" "url.info.gz" "tramp.info.gz" "todo-mode.info.gz" "srecode.info.gz" "speedbar.info.gz" "smtpmail.info.gz" "sieve.info.gz" "ses.info.gz" "semantic.info.gz" "sc.info.gz" "sasl.info.gz" "remember.info.gz" "reftex.info.gz" "rcirc.info.gz" "pgg.info.gz" "pcl-cvs.info.gz" "org.info.gz" "octave-mode.info.gz" "nxml-mode.info.gz" "newsticker.info.gz" "mh-e.info.gz" "message.info.gz" "mairix-el.info.gz" "info.info.gz" "ido.info.gz" "idlwave.info.gz" "htmlfontify.info.gz" "gnus.info.gz" "forms.info.gz" "flymake.info.gz" "eww.info.gz" "eudc.info.gz" "eshell.info.gz" "ert.info.gz" "erc.info.gz" "epa.info.gz" "emacs.info.gz" "emacs-mime.info.gz" "emacs-gnutls.info.gz" "elisp.info.gz" "eintr.info.gz" "eieio.info.gz" "efaq.info.gz" "edt.info.gz" "ediff.info.gz" "ede.info.gz" "ebrowse.info.gz" "dired-x.info.gz" "dir" "dbus.info.gz" "cl.info.gz" "ccmode.info.gz" "calc.info.gz" "bovine.info.gz" "autotype.info.gz" "auth.info.gz" "ada-mode.info.gz" "../" "./")
+
+ ("/Users/" (21577 9501 0 0) "Shared/" "hanjoes/" "Guest/" ".localized" "../" "./")
+
+ ("/Users/hanjoes/.emacs.d/" (21933 57223 0 0) "games/" "eshell/" "elpa/" "auto-save-list/" "../" "./")
+
+ ("/Users/hanjoes/Documents/Workspace/CPP/" (21764 35172 0 0) "makefile" "incl.mk" "CPP/" "CMake/" "cgi/" "Automake/" ".DS_Store" "../" "./")
+
+ ("/Users/hanjoes/Documents/Workspace/" (21904 39325 0 0) "Webapp/" "Verilog/" "USF/" "Tencent/" "Taomee/" "RemoteSystemsTempFiles/" "Python/" "PlayGround/" "OSX/" "MyApplication/" "MIPS/" "Java/" "GWT/" "Frontend/" "CPP/" "C/" "avatar/" "Android/" "Algorithm/" ".metadata/" ".idea/" ".DS_Store" "../" "./")
+
+ ("/Users/hanjoes/Documents/" (21867 40346 0 0) "Zoom/" "Workspace/" "Wedding/" "Virtual Machines.localized/" "RDC Connections/" "My Videos/" "My Pictures/" "My Music/" "My Games/" "Microsoft 用户数据/" "Library/" "enable-ccr.ko" "Amazon Music Importer/" ".localized" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

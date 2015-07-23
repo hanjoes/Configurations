@@ -12,11 +12,12 @@ filetype plugin indent on
 """""""""""""""""""""""""""""
 " General Settings.
 """""""""""""""""""""""""""""
-set sts=4			"set softtabstop this works for <Tab> and <BS>
-set cindent			"next two lines affect the actual number of blanks for cindent
+set sts=4			" set softtabstop this works for <Tab> and <BS>
+set cindent			" next two lines affect the actual number of blanks for cindent
 set shiftwidth=4
 set nu
-set backspace=2			"For backwards compatibility with version 5.4 and earlier"
+set backspace=2			" for backwards compatibility with version 5.4 and earlier"
+command R !./%			" allow me to run scripts by typing :R in vim"
 ""set autoindent
 ""set smartindent
 ""set bs=2		        " allow backspacing over everything in insert mode
@@ -44,11 +45,6 @@ syntax enable			" Switch syntax highlighting on, when the terminal has colors
 set hlsearch			" Also switch on highlighting the last used search pattern.
 set background=light
 let g:solarized_termcolors=256	" No support for OS X terminal, degrade to 256 colors
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
 colorscheme solarized
 
 " Adjusting font according to gui type
@@ -85,9 +81,4 @@ endif
 " VIM-Note
 """""""""""""""""""""""""""""
 " Only for OS X
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin"
-	let g:notes_directories = ['~/Dropbox/Notes/','~/Dropbox/Notes/School/','~/Dropbox/Notes/Work/']
-    endif
-endif
+let g:notes_directories = ['~/Dropbox/Notes/','~/Dropbox/Notes/School/','~/Dropbox/Notes/Work/']
