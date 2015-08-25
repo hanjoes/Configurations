@@ -1,0 +1,117 @@
+;; Object ParallelJIT/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ParallelJIT/"
+  :tables
+  (list
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-mode
+      :tags 
+        '( ("LEVEL" variable (:default-value ("../..")) nil [338 352])
+            ("TOOLNAME" variable (:default-value ("ParallelJIT")) nil [352 375])
+            ("EXAMPLE_TOOL" variable (:default-value ("1")) nil [375 392])
+            ("LINK_COMPONENTS" variable (:default-value ("mcjit" "interpreter" "nativecodegen")) nil [393 444])
+            ("$(LEVEL)/Makefile.common" include nil nil [445 478])
+            ("LIBS" variable (:default-value ("-lpthread")) nil [479 497]))          
+      :file "Makefile"
+      :pointmax 497
+      :fsize 496
+      :lastmodtime '(21867 24807 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "ParallelJIT.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("llvm/ADT/STLExtras.h" include nil nil [891 922])
+            ("llvm/ExecutionEngine/GenericValue.h" include nil nil [923 969])
+            ("llvm/ExecutionEngine/Interpreter.h" include nil nil [970 1015])
+            ("llvm/IR/Constants.h" include nil nil [1016 1046])
+            ("llvm/IR/DerivedTypes.h" include nil nil [1047 1080])
+            ("llvm/IR/Instructions.h" include nil nil [1081 1114])
+            ("llvm/IR/LLVMContext.h" include nil nil [1115 1147])
+            ("llvm/IR/Module.h" include nil nil [1148 1175])
+            ("llvm/Support/TargetSelect.h" include nil nil [1176 1214])
+            ("iostream" include (:system-flag t) nil [1215 1234])
+            ("pthread.h" include (:system-flag t) nil [1235 1255])
+            ("llvm" using (:type ("llvm" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1256 1277])
+            ("createAdd1" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("M" variable
+                       (:pointer 1
+                        :type ("Module" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1307 1317]))                  
+                :type ("Function" type (:type "class") nil nil))
+                nil [1279 2695])
+            ("CreateFibFunction" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("M" variable
+                       (:pointer 1
+                        :type ("Module" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2732 2742]))                  
+                :type ("Function" type (:type "class") nil nil))
+                nil [2697 4684])
+            ("threadParams" type
+               (:members 
+                  ( ("EE" variable
+                       (:pointer 1
+                        :type ("ExecutionEngine" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4710 4730])
+                    ("F" variable
+                       (:pointer 1
+                        :type ("Function" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4733 4745])
+                    ("value" variable (:type "int") (reparse-symbol classsubparts) [4748 4758]))                  
+                :type "struct")
+                nil [4686 4761])
+            ("WaitForThreads" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [4962 4969])
+                    ("WaitForThreads" function
+                       (:constructor-flag t
+                        :type ("WaitForThreads" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4972 5185])
+                    ("WaitForThreads" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5189 5386])
+                    ("block" function (:type "void") (reparse-symbol classsubparts) [5464 6202])
+                    ("releaseThreads" function
+                       (:arguments 
+                          ( ("num" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6383 6395]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6362 6827])
+                    ("private" label nil (reparse-symbol classsubparts) [6829 6837])
+                    ("unblockThreads" function (:type "void") (reparse-symbol classsubparts) [6840 7340])
+                    ("n" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7344 7353])
+                    ("waitFor" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7356 7371])
+                    ("condition" variable (:type ("pthread_cond_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7374 7399])
+                    ("mutex" variable (:type ("pthread_mutex_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7402 7424]))                  
+                :type "class")
+                nil [4939 7427])
+            ("synchronize" variable
+               (:typemodifiers ("static")
+                :type ("WaitForThreads" type (:type "class") nil nil))
+                nil [7429 7463])
+            ("callFunc" function
+               (:pointer 1
+                :arguments 
+                  ( ("param" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [7481 7494]))                  
+                :type "void")
+                nil [7465 7856])
+            ("main" function (:type "int") nil [7858 9995]))          
+      :file "ParallelJIT.cpp"
+      :pointmax 9996
+      :fsize 9994
+      :lastmodtime '(21867 24807 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!local!llvm!examples!ParallelJIT!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -75,3 +75,14 @@ ls
 cd ..
 ls
 exit
+ls
+brew install cmake
+exit
+cd /tmp/
+./a
+./test.o
+ls
+cd Dropbox/
+ls
+bash
+exit

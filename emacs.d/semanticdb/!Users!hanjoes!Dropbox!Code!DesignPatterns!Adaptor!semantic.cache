@@ -1,0 +1,16 @@
+;; Object Adaptor/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "Adaptor/"
+  :tables
+  (list
+    (semanticdb-table "Dog.cpp"
+      :major-mode 'c++-mode
+      :tags nil
+      :file "Dog.cpp"
+      :pointmax 124
+      :fsize 123
+      :lastmodtime '(21967 52656 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!hanjoes!Dropbox!Code!DesignPatterns!Adaptor!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,88 @@
+;; Object DesignPatterns/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "DesignPatterns/"
+  :tables
+  (list
+    (semanticdb-table "test.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ValuePanel.hpp" include nil nil [1 26])
+            ("SimpleParentView.hpp" include nil nil [27 58])
+            ("SimpleValuePanel.hpp" include nil nil [59 90])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [101 110])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [111 124]))                  
+                :type "int")
+                nil [92 252]))          
+      :file "test.cpp"
+      :pointmax 253
+      :fsize 252
+      :lastmodtime '(21944 24112 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "ValuePanel.hpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("_VALUE_PANEL_" variable (:constant-flag t) nil [31 44])
+            ("ValuePanel" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [65 72])
+                    ("interacted" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [77 107]))                  
+                :type "class")
+                nil [46 110]))          
+      :file "ValuePanel.hpp"
+      :pointmax 134
+      :fsize 133
+      :lastmodtime '(21944 10877 0 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_VALUE_PANEL_")
+          )
+)
+    (semanticdb-table "SimpleParentView.hpp"
+      :file "SimpleParentView.hpp"
+      :fsize 236
+      :lastmodtime '(21944 11074 0 0))
+    (semanticdb-table "SimpleValuePanel.hpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("_SIMPLE_VALUE_PANEL_" variable (:constant-flag t) nil [38 58])
+            ("_SIMPLE_VALUE_PANEL_" variable (:constant-flag t) nil [38 58])
+            ("_SIMPLE_VALUE_PANEL_" variable (:constant-flag t) nil [38 58])
+            ("_SIMPLE_VALUE_PANEL_" variable (:constant-flag t) nil [38 58])
+            ("iostream" include (:system-flag t) nil [60 79])
+            ("ValuePanel.hpp" include nil nil [81 106])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [108 128])
+            ("ValuePanel" variable (:type ("SimpleValuePanel" type
+                 (:prototype t
+                  :superclasses 
+                    ( ("pubic" type
+                         (:protection "unspecified"
+                          :type "class")
+                          nil nil))                    
+                  :type "class")
+                  nil nil)) nil [130 215]))          
+      :file "SimpleValuePanel.hpp"
+      :pointmax 246
+      :fsize 245
+      :lastmodtime '(21944 23437 0 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_SIMPLE_VALUE_PANEL_")
+          )
+))
+  :file "!Users!hanjoes!Dropbox!Code!DesignPatterns!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

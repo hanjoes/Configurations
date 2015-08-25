@@ -1,97 +1,102 @@
-;; (package-initialize)
+; package initialize
+(package-initialize)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
- '(blink-cursor-mode nil)
- '(compilation-message-face (quote default))
- '(cua-global-mark-cursor-color "#2aa198")
- '(cua-normal-cursor-color "#839496")
- '(cua-overwrite-cursor-color "#b58900")
- '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes
-   (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(fci-rule-color "#073642")
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-symbol-colors
-   (--map
-    (solarized-color-blend it "#002b36" 0.25)
-    (quote
-     ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
- '(highlight-symbol-foreground-color "#93a1a1")
- '(highlight-tail-colors
-   (quote
-    (("#073642" . 0)
-     ("#546E00" . 20)
-     ("#00736F" . 30)
-     ("#00629D" . 50)
-     ("#7B6000" . 60)
-     ("#8B2C02" . 70)
-     ("#93115C" . 85)
-     ("#073642" . 100))))
- '(hl-bg-colors
-   (quote
-    ("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F" "#546E00")))
- '(hl-fg-colors
-   (quote
-    ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
- '(ido-mode (quote both) nil (ido))
- '(inhibit-startup-screen t)
- '(magit-diff-use-overlays nil)
- '(menu-bar-mode nil)
- '(org-agenda-files (quote ("/tmp/test.org")))
- '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "http://melpa.milkbox.net/packages/"))))
- '(pos-tip-background-color "#073642")
- '(pos-tip-foreground-color "#93a1a1")
- '(scroll-bar-mode nil)
- '(server-mode t)
- '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
- '(term-default-bg-color "#002b36")
- '(term-default-fg-color "#839496")
- '(tool-bar-mode nil)
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#dc322f")
-     (40 . "#c37300")
-     (60 . "#b97d00")
-     (80 . "#b58900")
-     (100 . "#a18700")
-     (120 . "#9b8700")
-     (140 . "#948700")
-     (160 . "#8d8700")
-     (180 . "#859900")
-     (200 . "#5a942c")
-     (220 . "#439b43")
-     (240 . "#2da159")
-     (260 . "#16a870")
-     (280 . "#2aa198")
-     (300 . "#009fa7")
-     (320 . "#0097b7")
-     (340 . "#008fc7")
-     (360 . "#268bd2"))))
- '(vc-annotate-very-old-color nil)
- '(weechat-color-list
-   (quote
-    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Sauce Code Powerline")))))
-
-;; org-mode auto closing with date
+; org-mode auto closing with date
 (setq org-log-done 'time)
 
-;; soft tab
+; tab
 (setq-default indent-tabs-mode nil)
+
+; irony-mode
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'company-mode)
+
+; replace the 'completion-at-point-' and 'complete-symbol' bindings in
+; irony-mode's buffers by irony-mode's function
+(defun my-irony-mode-hook ()
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+; tabs
+(setq-default c-basic-offset 4)
+
+; gdb multiple window & PATH
+(setq gdb-many-windows t gdb-show-main t)
+; (setq gud-gdb-command-name "/usr/local/bin/gdb")
+
+; flymake
+; (add-hook 'find-file-hook 'flymake-find-file-hook)
+; global company-mode
+; (add-hook 'after-init-hook 'global-company-mode)
+
+; start yasnippet when emacs starts
+(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-20150415.244")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+; start auto-complete with emacs
+(require 'auto-complete)
+; do default config for auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+
+; initialize auto-complete-c-headers and gets called for c/c++ files
+(defun my:ac-c-header-init()
+  (require 'auto-complete-c-headers)
+  (add-to-list 'ac-sources 'ac-source-c-headers))
+; call this function from c/c++ hooks
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
+
+; fix iedit bug in Mac
+(define-key global-map (kbd "C-c ;") 'iedit-mode)
+
+; start flymake-google-cpplint-load
+;(defun my:flymake-google-init ()
+;  (require 'flymake-google-cpplint)
+;  (custom-set-variables
+;   '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
+;  (flymake-google-cpplint-load)
+;  )
+;(add-hook 'c++-mode-hook 'my:flymake-google-init)
+;(add-hook 'c-mode-hook 'my:flymake-google-init)
+
+; start google-c-style with emacs
+;(require 'google-c-style)
+;(add-hook 'c-mode-common-hook 'google-set-c-style)
+;(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+; turn on semantic mode-name
+(semantic-mode 1)
+
+; add semantic as a suggestion 
+(defun my:add-semantic-to-autocomplete()
+  (add-to-list 'ac-sources 'ac-source-semantic)
+)
+(add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
+
+; turn scheduler mode on
+(global-semantic-idle-scheduler-mode 1)
+
+; auto-fill minor mode for text files
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+; theme
+; (load-theme 'solarized-light' t)
+;(add-hook 'after-make-frame-functions
+;          (lambda (frame)
+;            (let ((mode (if (display-graphic-p frame) 'light 'dark)))
+;              (set-frame-parameter frame 'background-mode mode)
+;              (set-terminal-parameter frame 'background-mode mode))
+;            (enable-theme 'solarized))
+
+; start-server
+(server-start)
