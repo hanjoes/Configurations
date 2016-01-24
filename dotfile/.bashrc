@@ -14,7 +14,7 @@ fi
 # Setup prompt to using neat-prompt
 #==============================================================================
 
-PROMPT_COMMAND='PS1="`python ~/Configurations/prompt/neat_prompt.py`"'
+PROMPT_COMMAND='PS1="`python ~/Configurations/neat-prompt/neat_prompt.py`"'
 
 #==============================================================================
 # Some important environment variables.
