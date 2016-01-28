@@ -1,0 +1,6 @@
+
+; hide markup control characters
+(setq org-hide-emphasis-markers t)
+
+; disable backup files (for clean directory)
+(setq make-backup-files nil)
