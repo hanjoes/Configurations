@@ -40,7 +40,7 @@ export TERM='screen-256color'
 
 # For emacs as the default editor
 export ALTERNATE_EDITOR=""
-export EDITOR=emacsclient
+export EDITOR=vim
 
 #==============================================================================
 # Set system limits
