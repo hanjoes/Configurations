@@ -25,7 +25,9 @@ export PATH=$PATH:\
 /usr/local/gcc-arm-none-eabi-4_9-2015q1/bin:\
 /opt/local/bin:\
 /Users/hanjoes/Library/Android/sdk/platform-tools/:\
-/usr/local/bin
+/usr/local/bin:\
+/apollo/env/SDETools/bin:\
+/Users/hanzhos/Library/Android/sdk/platform-tools
 
 # JAVA_HOME for Intellij
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
@@ -62,6 +64,14 @@ alias sb='source ~/.bashrc'
 alias tmux='tmux -2'
 alias ec='emacsclient -c "$@"'
 
+
+alias bb="brazil-build"
+alias bbc="brazil-build clean"
+alias bbs="brazil-build server"
+alias bws="brazil ws sync"
+alias bwsm="brazil ws sync -md"
+alias rbbc="brazil-recursive-cmd --allPackages --reverse \'brazil-build clean\'"
+alias rbb="brazil-recursive-cmd --allPackages brazil-build"
 
 #==============================================================================
 # Set vim as default pager:
