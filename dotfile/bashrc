@@ -24,13 +24,13 @@ export PATH=$PATH:\
 /usr/local/apache-maven-3.2.3/bin:\
 /usr/local/gcc-arm-none-eabi-4_9-2015q1/bin:\
 /opt/local/bin:\
-/Users/hanjoes/Library/Android/sdk/platform-tools/:\
+/Users/hanjoes/Library/Android/sdk/platform-tools:\
 /usr/local/bin:\
 /apollo/env/SDETools/bin:\
 /Users/hanzhos/Library/Android/sdk/platform-tools
 
-# JAVA_HOME for Intellij
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
+# JAVA_HOME
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/
 
 # JAVA classpath system-wide
 export CLASSPATH=.:\

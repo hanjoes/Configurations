@@ -20,6 +20,13 @@
 (eval-after-load 'company
   '(add-to-list 'company-backends '(company-ghc :with company-tern)))
 
+;; blank mode
+(require 'blank-mode)
+(global-blank-mode 1)
+
+;; swift3 mode
+(add-hook 'swift-mode-hook (lambda() (setq indent-tabs-mode t)))
+
 ;; evil mode configs
 (require 'evil)
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
@@ -39,6 +46,9 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
+ '(blank-chars
+   (quote
+    (tabs spaces trailing space-before-tab indentation empty space-after-tab)))
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
@@ -126,6 +136,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Menlo")))))
+ '(default ((t (:inherit nil :stipple nil :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Menlo"))))
+ '(blank-line ((t (:background "gray20" :foreground "violet")))))
 
 (load-theme 'solarized-light)
