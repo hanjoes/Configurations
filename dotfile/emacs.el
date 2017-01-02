@@ -25,7 +25,19 @@
 (global-blank-mode 1)
 
 ;; swift3 mode
-(add-hook 'swift-mode-hook (lambda() (setq indent-tabs-mode t)))
+(add-hook 'swift3-mode-hook (lambda() (setq indent-tabs-mode t)))
+
+;; company sourcekit (for swift)
+(require 'company-sourcekit)
+(add-to-list 'company-backends 'company-sourcekit)
+(setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon"
+      sourcekit-verbose nil)
+
+;; yasnippet
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; evil mode configs
 (require 'evil)
