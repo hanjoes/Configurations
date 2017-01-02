@@ -24,18 +24,18 @@
 (require 'blank-mode)
 (global-blank-mode 1)
 
-;; swift3 mode
-(add-hook 'swift3-mode-hook (lambda() (setq indent-tabs-mode t)))
+;; swift mode
+(add-hook 'swift-mode-hook (lambda() (setq indent-tabs-mode t)))
 
 ;; company sourcekit (for swift)
 (require 'company-sourcekit)
 (add-to-list 'company-backends 'company-sourcekit)
 (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon"
-      sourcekit-verbose nil)
+      sourcekit-verbose t)
 
 ;; yasnippet
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
+;; (add-to-list 'load-path
+;;              "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 
