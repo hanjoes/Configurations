@@ -20,6 +20,9 @@
 (eval-after-load 'company
   '(add-to-list 'company-backends '(company-ghc :with company-tern)))
 
+;; show paren mode (display parentheses)
+(show-paren-mode t)
+
 ;; blank mode
 (require 'blank-mode)
 (global-blank-mode 1)
@@ -31,7 +34,7 @@
 (require 'company-sourcekit)
 (add-to-list 'company-backends 'company-sourcekit)
 (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon"
-      sourcekit-verbose t)
+      sourcekit-verbose nil)
 
 ;; yasnippet
 ;; (add-to-list 'load-path
