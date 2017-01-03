@@ -6,10 +6,26 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+;; temporary files
+;; (setq backup-directory-alist
+;;   '((".*" . ,"/Users/hanzhos/Documents/emacs-tmp")))
+;; (setq auto-save-file-name-transforms
+;;   '((".*" ,"/Users/hanzhos/Documents/emacs-tmp" t)))
+
 ;; initialization stuff
 (global-linum-mode 1)
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'neotree)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;; yaml mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+;; blank mode
+(require 'blank-mode)
+(global-blank-mode 1)
+
 
 ;; highlight the current line
 (require 'hlinum)
@@ -112,7 +128,6 @@
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(shell-file-name "/bin/bash")
- '(show-trailing-whitespace t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
@@ -155,3 +170,5 @@
  '(blank-line ((t (:background "gray20" :foreground "violet")))))
 
 (load-theme 'solarized-light)
+
+(this is an unquoted list)
