@@ -46,6 +46,10 @@
 (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon"
       sourcekit-verbose nil)
 
+;; solarized theme
+(add-to-list 'custom-theme-load-path "/Users/hanjoes/.emacs.d/emacs-color-theme-solarized")
+(load-theme 'solarized-dark t)
+
 ;; yasnippet
 ;; (add-to-list 'load-path
 ;;              "~/.emacs.d/plugins/yasnippet")
@@ -77,11 +81,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
  '(blank-chars
    (quote
-    (tabs spaces trailing space-before-tab indentation empty space-after-tab)))
+    (tabs space-before-tab indentation space-after-tab spaces)))
  '(indent-tabs-mode nil)
  '(magit-diff-use-overlays nil)
  '(markdown-command "/usr/local/bin/markdown")
@@ -91,3 +93,14 @@
  '(neo-window-fixed-size t)
  '(neo-window-width 35)
  '(shell-file-name "/bin/bash"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blank-empty ((t (:foreground "gray20"))))
+ '(blank-hspace ((t (:foreground "gray20"))))
+ '(blank-indentation ((t (:foreground "gray20"))))
+ '(blank-space ((t (:foreground "gray20"))))
+ '(blank-space-after-tab ((t (:foreground "gray20"))))
+ '(blank-tab ((t (:foreground "gray20")))))
