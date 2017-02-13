@@ -104,3 +104,7 @@
  '(blank-space ((t (:foreground "gray20"))))
  '(blank-space-after-tab ((t (:foreground "gray20"))))
  '(blank-tab ((t (:foreground "gray20")))))
+
+;; add my goodies.
+;; putting at the end so it can override everything (possibily?)
+(add-to-list 'load-path "~/Configurations/emacs/goodies/")
