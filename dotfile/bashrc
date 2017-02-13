@@ -50,6 +50,12 @@ export EDITOR=vim
 ulimit -c unlimited
 
 #==============================================================================
+# For pyenv to work
+#==============================================================================
+eval "$(pyenv init -)"
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+#==============================================================================
 # Aliases
 #==============================================================================
 alias ll='ls -Gl'
@@ -71,6 +77,8 @@ alias bws="brazil ws sync"
 alias bwsm="brazil ws sync -md"
 alias rbbc="brazil-recursive-cmd --allPackages --reverse \'brazil-build clean\'"
 alias rbb="brazil-recursive-cmd --allPackages brazil-build"
+
+alias brazil-pycharm="brazil-python-env testrun open '/Applications/PyCharm CE.app'"
 
 #==============================================================================
 # Set vim as default pager:
