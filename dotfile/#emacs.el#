@@ -47,8 +47,8 @@
 ;;       sourcekit-verbose nil)
 
 ;; solarized theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
-(set-frame-parameter nil 'background-mode 'dark)
+;; (add-to-list 'custom-theme-load-path "/Users/hanjoes/.emacs.d/emacs-color-theme-solarized")
+(require 'color-theme-solarized)
 (load-theme 'solarized t)
 
 ;; yasnippet
@@ -108,10 +108,20 @@
  '(blank-indentation ((t (:foreground "gray20"))))
  '(blank-space ((t (:foreground "gray20"))))
  '(blank-space-after-tab ((t (:foreground "gray20"))))
- '(blank-tab ((t (:foreground "gray20")))))
+ '(blank-tab ((t (:foreground "gray20"))))
+ '(org-level-1 ((t (:foreground "#cb4b16"))))
+ '(org-level-2 ((t (:foreground "#859900"))))
+ '(org-level-3 ((t (:foreground "#268bd2"))))
+ '(org-level-4 ((t (:foreground "#b58900")))))
 
 ;; add my goodies.
 ;; putting at the end so it can override everything (possibily?)
 (add-to-list 'load-path "~/Configurations/emacs/goodies/")
 (require 'company-messing)
 (add-to-list 'company-backends 'company-messing)
+
+;; company sourcekit (for swift)
+;; (require 'company-sourcekit)
+;; (add-to-list 'company-backends 'company-sourcekit)
+;; (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon"
+;;       sourcekit-verbose nil)
