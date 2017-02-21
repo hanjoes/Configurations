@@ -38,7 +38,7 @@
 (show-paren-mode t)
 
 ;; swift mode
-(add-hook 'swift-mode-hook (lambda() (setq indent-tabs-mode t)))
+;; (add-hook 'swift-mode-hook (lambda() (setq indent-tabs-mode t)))
 
 ;; company sourcekit (for swift)
 ;; (require 'company-sourcekit)
@@ -88,6 +88,7 @@
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(evil-auto-indent t)
  '(indent-tabs-mode nil)
  '(magit-diff-use-overlays nil)
  '(markdown-command "/usr/local/bin/markdown")
@@ -97,7 +98,8 @@
  '(neo-window-fixed-size t)
  '(neo-window-width 35)
  '(shell-file-name "/bin/bash")
- '(solarized-scale-org-headlines nil))
+ '(solarized-scale-org-headlines nil)
+ '(swift-mode:multiline-statement-offset 0))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

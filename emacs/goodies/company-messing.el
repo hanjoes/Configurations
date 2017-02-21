@@ -21,9 +21,13 @@
     (candidates (company-messing-completion arg))))
 
 (defun company-messing-completion (arg)
-  (with-temp-buffer
-    (call-process-shell-command "/tmp/helloworld" nil t)
-    (list (buffer-substring (point-min) (point-max)))))
+  (let ((cmd (list "/tmp/Swifty"
+                  (buffer-file-name)
+                  (number-to-string (point)))))
+    (with-temp-buffer
+      (message (mapconcat 'identity cmd " "))
+      (call-process-shell-command (mapconcat 'identity cmd " ") nil t)
+      (list (buffer-substring (point-min) (point-max))))))
 
 ;; shamelessly stealing from @sellout on github
 (defun company-sourcekit--prefix ()
