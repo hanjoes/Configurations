@@ -18,16 +18,21 @@
   (cl-case command
     (interactive (company-begin-backend 'company-messing))
     (prefix (company-sourcekit--prefix))
-    (candidates (company-messing-completion arg))))
+    (candidates (company-messing-candidates arg))
+    (annotation (company-messing-annotation arg))))
 
-(defun company-messing-completion (arg)
+
+
+(defun company-messing-candidates (arg)
   (let ((cmd (list "/tmp/Swifty"
                   (buffer-file-name)
                   (number-to-string (point)))))
     (with-temp-buffer
-      (message (mapconcat 'identity cmd " "))
       (call-process-shell-command (mapconcat 'identity cmd " ") nil t)
-      (list (buffer-substring (point-min) (point-max))))))
+      (process-list-str (buffer-substring (point-min) (point-max))))))
+
+(defun process-list-str(list-str)
+  (split-string list-str "\n"))
 
 ;; shamelessly stealing from @sellout on github
 (defun company-sourcekit--prefix ()
