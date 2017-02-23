@@ -21,7 +21,10 @@
     (candidates (company-messing-candidates arg))
     (annotation (company-messing-annotation arg))))
 
-
+(defun company-messing-annotation (candidate)
+  (progn
+    (message candidate)
+    (format ": %s" candidate)))
 
 (defun company-messing-candidates (arg)
   (let ((cmd (list "/tmp/Swifty"
@@ -29,10 +32,13 @@
                   (number-to-string (point)))))
     (with-temp-buffer
       (call-process-shell-command (mapconcat 'identity cmd " ") nil t)
-      (process-list-str (buffer-substring (point-min) (point-max))))))
+      (name-from-candidates (buffer-substring (point-min) (point-max))))))
 
-(defun process-list-str(list-str)
-  (split-string list-str "\n"))
+(defun fetch-name (candidate)
+  (car (split-string candidate ":")))
+
+(defun name-from-candidates (candidates)
+  (mapcar 'fetch-name (split-string candidates "\n")))
 
 ;; shamelessly stealing from @sellout on github
 (defun company-sourcekit--prefix ()
