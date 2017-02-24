@@ -110,6 +110,7 @@
  '(blank-indentation ((t (:foreground "gray20"))))
  '(blank-space ((t (:foreground "gray20"))))
  '(blank-space-after-tab ((t (:foreground "gray20"))))
+ '(blank-space-before-tab ((t (:foreground "gray20"))))
  '(blank-tab ((t (:foreground "gray20")))))
 
 ;; add my goodies.
