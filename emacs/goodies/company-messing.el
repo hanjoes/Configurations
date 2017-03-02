@@ -2,43 +2,33 @@
 
 ;; mainly serve as a playground for messing-around.
 
-;;; Code:
-
-(defun mess ()
-  "Help me mess around."
-  (interactive)
-  (message "I'm messing around"))
-
-(defconst sample-completions
-  '("alan" "john" "ada" "don"))
-
 ;;;###autoload
 (defun company-messing (command &optional arg &rest ignored)
   (interactive (list 'interactive))
   (cl-case command
     (interactive (company-begin-backend 'company-messing))
     (prefix (company-sourcekit--prefix))
-    (candidates (company-messing-candidates arg))
+    (candidates (cons :async (lambda (cb) (company-messing-candidates arg cb))))
     (annotation (company-messing-annotation arg))))
 
 (defun company-messing-annotation (candidate)
-  (progn
-    (message candidate)
-    (format ": %s" candidate)))
+  (format " %s" (get-text-property 0 'type candidate)))
 
-(defun company-messing-candidates (arg)
+(defun company-messing-candidates (arg callback)
   (let ((cmd (list "/tmp/Swifty"
                   (buffer-file-name)
                   (number-to-string (point)))))
     (with-temp-buffer
       (call-process-shell-command (mapconcat 'identity cmd " ") nil t)
-      (name-from-candidates (buffer-substring (point-min) (point-max))))))
+      (funcall callback (company-messing-process-output (buffer-substring (point-min) (point-max)))))))
 
-(defun fetch-name (candidate)
-  (car (split-string candidate ":")))
-
-(defun name-from-candidates (candidates)
-  (mapcar 'fetch-name (split-string candidates "\n")))
+(defun company-messing-process-output (candidates)
+  (append (mapcar
+           (lambda (c)
+             (propertize (car (split-string c ":"))
+                         'name (car (split-string c ":"))
+                         'type (cdr (split-string c ":"))))
+           (cl-remove-if (lambda (s) (string= "" s)) (split-string candidates "\n")))))
 
 ;; shamelessly stealing from @sellout on github
 (defun company-sourcekit--prefix ()
