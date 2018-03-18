@@ -115,6 +115,6 @@
 
 ;; add my goodies.
 ;; putting at the end so it can override everything (possibily?)
-(add-to-list 'load-path "~/Configurations/emacs/goodies/")
-(require 'company-messing)
-(add-to-list 'company-backends 'company-messing)
+;; (add-to-list 'load-path "~/Configurations/emacs/goodies/")
+;; (require 'company-swifty)
+;; (add-to-list 'company-backends 'company-swifty)

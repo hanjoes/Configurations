@@ -14,11 +14,15 @@ fi
 # Setup prompt to using neat-prompt
 #==============================================================================
 
-PROMPT_COMMAND='PS1="`python ~/Configurations/neat-prompt/neat_prompt.py`"'
+PROMPT_COMMAND='PS1="`python ~/Configurations/neat-prompt/generate.py`"'
 
 #==============================================================================
 # Some important environment variables.
 #==============================================================================
+
+# For go this needs to go before where it's used
+export GOPATH="/Users/hanjoes/Documents/go/"
+
 # PATH
 export PATH=$PATH:\
 /usr/local/apache-maven-3.2.3/bin:\
@@ -27,14 +31,15 @@ export PATH=$PATH:\
 /Users/hanjoes/Library/Android/sdk/platform-tools:\
 /usr/local/bin:\
 /apollo/env/SDETools/bin:\
-/Users/hanzhos/Library/Android/sdk/platform-tools
+/Users/hanzhos/Library/Android/sdk/platform-tools:\
+$(go env GOPATH)/bin
 
 # JAVA_HOME for Intellij
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/
 
 # JAVA classpath system-wide
 export CLASSPATH=.:\
-/usr/local/lib/antlr-4.5-complete.jar:\
+~/.m2/repository/org/antlr/antlr4/4.7.1-SNAPSHOT/antlr4-4.7.1-SNAPSHOT-complete.jar:\
 /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/lib/tools.jar
 
 # For tmux
@@ -61,8 +66,8 @@ eval "$(pyenv init -)"
 alias ll='ls -Gl'
 alias la='ls -Ga'
 alias ls='ls -G'
-alias antlr4='java -jar /usr/local/lib/antlr-4.5-complete.jar'
-alias grun='java org.antlr.v4.runtime.misc.TestRig'
+alias antlr4='java -jar ~/.m2/repository/org/antlr/antlr4/4.7.1-SNAPSHOT/antlr4-4.7.1-SNAPSHOT-complete.jar'
+alias grun='java org.antlr.v4.gui.TestRig'
 alias rp='screen /dev/cu.usbserial 115200l'
 alias j='java'
 alias jc='javac'
@@ -101,3 +106,6 @@ set -o emacs
 # Prevent terminal input from overriding prompt
 # (by calculating the wrong window size)
 shopt -s checkwinsize
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
