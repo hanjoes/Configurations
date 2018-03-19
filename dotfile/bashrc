@@ -35,7 +35,7 @@ export PATH=$PATH:\
 $(go env GOPATH)/bin
 
 # JAVA_HOME for Intellij
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/
 
 # JAVA classpath system-wide
 export CLASSPATH=.:\
