@@ -1,5 +1,6 @@
 ;; PATH
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; custom key bindings
 (global-set-key (kbd "C-c C-n C-t") 'neotree-toggle) ; toggle neotree
@@ -21,10 +22,6 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
-;; blank mode
-(require 'blank-mode)
-(global-blank-mode 1)
-
 ;; highlight the current line
 (require 'hlinum)
 (hlinum-activate)
@@ -37,84 +34,26 @@
 ;; show paren mode (display parentheses)
 (show-paren-mode t)
 
-;; swift mode
-;; (add-hook 'swift-mode-hook (lambda() (setq indent-tabs-mode t)))
+;; octave
+(require 'ac-octave)
+(add-hook 'octave-mode-hook
+          '(lambda () (ac-octave-setup)))
 
-;; company sourcekit (for swift)
-;; (require 'company-sourcekit)
-;; (add-to-list 'company-backends 'company-sourcekit)
-;; (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon"
-;;       sourcekit-verbose nil)
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
-;; solarized theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
-(set-frame-parameter nil 'background-mode 'dark)
-(load-theme 'solarized t)
-
-;; yasnippet
-;; (add-to-list 'load-path
-;;              "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (if (eq window-system 'x)
+                (font-lock-mode 1))))
 
 ;; evil mode configs
 (require 'evil)
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (evil-mode 1)
 
-;; Tern setup
-(add-to-list 'load-path "/usr/local/lib/node_modules/tern/emacs/")
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
-
-;; NeoTree
-(add-hook 'neotree-mode-hook
-          (lambda ()
-            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
-
-;; enable js2-mode by default (or it will be js-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blank-chars
-   (quote
-    (tabs space-before-tab indentation space-after-tab spaces)))
- '(custom-safe-themes
-   (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(evil-auto-indent t)
- '(indent-tabs-mode nil)
- '(magit-diff-use-overlays nil)
- '(markdown-command "/usr/local/bin/markdown")
- '(neo-click-changes-root nil)
- '(neo-create-file-auto-open t)
- '(neo-theme (quote classic))
- '(neo-window-fixed-size t)
- '(neo-window-width 35)
- '(shell-file-name "/bin/bash")
- '(solarized-scale-org-headlines nil)
- '(swift-mode:multiline-statement-offset 0))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blank-empty ((t (:foreground "gray20"))))
- '(blank-hspace ((t (:foreground "gray20"))))
- '(blank-indentation ((t (:foreground "gray20"))))
- '(blank-space ((t (:foreground "gray20"))))
- '(blank-space-after-tab ((t (:foreground "gray20"))))
- '(blank-space-before-tab ((t (:foreground "gray20"))))
- '(blank-tab ((t (:foreground "gray20")))))
-
-;; add my goodies.
-;; putting at the end so it can override everything (possibily?)
-;; (add-to-list 'load-path "~/Configurations/emacs/goodies/")
-;; (require 'company-swifty)
-;; (add-to-list 'company-backends 'company-swifty)
+;; golang
+(add-hook 'before-save-hook #'gofmt-before-save)
