@@ -1,9 +1,14 @@
 ;; PATH
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path "~/go/bin/")
 
 ;; custom key bindings
 (global-set-key (kbd "C-c C-n C-t") 'neotree-toggle) ; toggle neotree
+
+;; save
+(desktop-save-mode 1)
+(savehist-mode 1)
 
 ;; package manager
 (require 'package)
@@ -15,8 +20,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;; font size
+;; display stuff
 (set-face-attribute 'default (selected-frame) :height 140)
+(setq-default tab-width 4)
 
 ;; yaml mode
 (require 'yaml-mode)
