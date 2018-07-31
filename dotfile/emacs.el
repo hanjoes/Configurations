@@ -60,4 +60,4 @@
 
 ;; ========= T H E M E S =========
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'hickey t)
+(load-theme 'brin t)
