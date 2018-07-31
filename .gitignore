@@ -1,3 +1,4 @@
 # Ignore system housekeeping files
 .fetch_time_cache
-.netrwhist
+vim/*
+neat-prompt/
