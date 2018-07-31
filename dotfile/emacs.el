@@ -57,3 +57,7 @@
 
 ;; golang
 (add-hook 'before-save-hook #'gofmt-before-save)
+
+;; ========= T H E M E S =========
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'hickey t)
