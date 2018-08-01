@@ -23,7 +23,6 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; display stuff
-(set-face-attribute 'default (selected-frame) :height 140)
 (setq-default tab-width 4)
 
 ;; yaml mode
