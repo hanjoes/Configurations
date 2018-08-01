@@ -76,15 +76,15 @@
 
 ;; ========= T H E M E S =========
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'brin t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
+ '(custom-enabled-themes (quote (brin)))
+ '(custom-safe-themes
    (quote
-	(elpy yaml-mode tern sublime-themes sourcekit semi s markdown-mode hlinum go-mode evil company-ghc ac-octave))))
+	("9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
