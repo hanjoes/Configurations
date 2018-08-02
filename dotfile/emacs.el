@@ -74,7 +74,10 @@
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; ========= T H E M E S =========
+(menu-bar-mode -1)
 (tool-bar-mode -1) 
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
