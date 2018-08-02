@@ -74,6 +74,7 @@
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; ========= T H E M E S =========
+(tool-bar-mode -1) 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -89,4 +90,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "#2b303b" :foreground "#c0c5ce" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Source Code Pro for Powerline")))))
