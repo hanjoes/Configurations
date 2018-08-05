@@ -1,3 +1,4 @@
+;; ========= E n v i r o n m e n t =========
 ;; PATH
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (setenv "GOPATH" (concat "/Users/hanzhos/workspace/HanjoesPlayground/build/HanjoesTestGoPackage/HanjoesTestGoPackage-1.0/RHEL5_64/DEV.STD.PTHREAD/build/private/tmp/brazil-path/testrun.runtimefarm/gopath/:/Users/hanzhos/workspace/HanjoesPlayground/src/HanjoesTestGoPackage/" (getenv "OPATH")))
@@ -5,25 +6,33 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/go/bin/")
 
-;; custom key bindings
-(global-set-key (kbd "C-c C-n C-t") 'neotree-toggle) ; toggle neotree
-
-;; save
-(desktop-save-mode 1)
-(savehist-mode 1)
+(global-linum-mode 1)
 
 ;; package manager
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
-;; initialization stuff
-(global-linum-mode 1)
+;; better UI
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
+
+;; tab is always 4 character-long
+(setq-default tab-width 4)
+
+;; ========= M o d e s =========
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;; display stuff
-(setq-default tab-width 4)
+;; evil mode configs
+(require 'evil)
+(evil-mode 1)
+
+;; save
+(desktop-save-mode 1)
+(savehist-mode 1)
 
 ;; yaml mode
 (require 'yaml-mode)
@@ -38,17 +47,15 @@
 (eval-after-load 'company
   '(add-to-list 'company-backends '(company-ghc :with company-tern)))
 
-;; evil mode configs
-(require 'evil)
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-normal-state-map (kbd "M-.") nil)
-(evil-mode 1)
-
 ;; show paren mode (display parentheses)
 (show-paren-mode t)
 
-;; ========= L A N G U A G E S =========
+;; ========= K e y  B i n d i n g s =========
+;; For evil mode
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "M-.") nil)
 
+;; ========= L A N G U A G E S =========
 ;; python
 (package-initialize)
 (elpy-enable)
@@ -74,10 +81,6 @@
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; ========= T H E M E S =========
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(horizontal-scroll-bar-mode -1)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
