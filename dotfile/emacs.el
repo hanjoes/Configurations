@@ -19,7 +19,8 @@
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 
-;; tab is always 4 character-long
+;; tab settings
+(setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
 
 ;; ========= M o d e s =========

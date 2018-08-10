@@ -10,6 +10,8 @@ ROOT = ''
 PROMPT_SCRIPT = 'neat-prompt'
 
 if __name__ == '__main__':
+    _check_power_user()
+    
     ROOT = os.path.dirname(os.path.realpath(__file__))
     if os.path.basename(ROOT) != "Configurations":
         print('The script is not in "Configurations" folder, aborting.')
@@ -46,8 +48,10 @@ def _setup_work_environment_2():
 
 
 def _download_prompt_script():
-    '''
-    Downloads the prompt script.
-    '''
+    
     print('downloading....')
     pass
+
+
+def _check_power_user():
+    print

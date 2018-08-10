@@ -9,7 +9,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-
 #==============================================================================
 # Setup prompt to using neat-prompt
 #==============================================================================
@@ -75,16 +74,6 @@ alias sb='source ~/.bashrc'
 alias tmux='tmux -2'
 
 
-alias bb="brazil-build"
-alias bbc="brazil-build clean"
-alias bbs="brazil-build server"
-alias bws="brazil ws sync"
-alias bwsm="brazil ws sync -md"
-alias rbbc="brazil-recursive-cmd --allPackages --reverse \'brazil-build clean\'"
-alias rbb="brazil-recursive-cmd --allPackages brazil-build"
-
-alias brazil-pycharm="brazil-python-env testrun open '/Applications/PyCharm CE.app'"
-
 #==============================================================================
 # Set vim as default pager:
 #==============================================================================
@@ -109,3 +98,5 @@ shopt -s checkwinsize
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+source 1
