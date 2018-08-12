@@ -14,10 +14,11 @@
 (package-initialize)
 
 ;; better UI
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(horizontal-scroll-bar-mode -1)
+(if (display-graphic-p)
+	(menu-bar-mode -1)
+	(tool-bar-mode -1)
+	(scroll-bar-mode -1)
+	(horizontal-scroll-bar-mode -1))
 
 ;; tab settings
 (setq-default indent-tabs-mode t)
