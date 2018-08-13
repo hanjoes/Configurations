@@ -1,4 +1,4 @@
-(load "~/Configurations/dotfile/package_check")
+(load "~/Configurations/dotfile/package-sync")
 (initialize-my-packages)
 
 ;; ========= E n v i r o n m e n t =========

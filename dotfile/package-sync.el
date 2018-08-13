@@ -1,7 +1,7 @@
 (message "hello")
 
 (defun initialize-my-packages ()
-  (setq package-list '(evil))
+  (setq package-list '(evil company yaml-mode hlinum elpy ac-octave sublime-themes))
   (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                            ("marmalade" . "https://marmalade-repo.org/packages/")
                            ("melpa" . "https://melpa.org/packages/")))

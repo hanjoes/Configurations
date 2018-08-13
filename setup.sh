@@ -2,6 +2,7 @@
 
 PACKAGE_MANAGER=''
 CONFIG_HOME="${HOME}/Configurations"
+VIM_HOME="${HOME}/.vim"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Function definitions 
@@ -110,6 +111,34 @@ function setup_git() {
 	git config --global alias.st status
 }
 
+function setup_vim() {
+	# i added pathegen.vim to version control, so there is no need for
+	# the line below
+	#
+	# curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+	PATHEGEN_BUNDLE=$VIM_HOME/bundle
+	cd $PATHEGEN_BUNDLE
+
+	# install color theme solarized
+	if [ -d $PATHEGEN_BUNDLE/vim-colors-solarized ]
+	then
+		git clone git://github.com/altercation/vim-colors-solarized.git
+	fi
+
+	# install nerdtree
+	if [ -d $PATHEGEN_BUNDLE/nerdtree ]
+	then
+		git clone https://github.com/scrooloose/nerdtree.git
+	fi
+
+	# install vim-airline
+	if [ -d $PATHEGEN_BUNDLE/vim-airline ]
+	then
+		git clone https://github.com/vim-airline/vim-airline
+	fi
+}
+
 function identify_package_manager() {
 	DISTRO=`cat /etc/os-release | grep '^ID=' | cut -d= -f2` 
 	if [ -n $DISTRO ]
@@ -150,4 +179,5 @@ check_and_install_vim
 check_and_install_emacs
 
 setup_git
+setup_vim
 
