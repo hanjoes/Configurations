@@ -84,7 +84,8 @@
 
 ;; ========= A p p e a r a n c e =========
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'spolsky t)
+(if (display-graphic-p)
+	(load-theme 'spolsky))
 
 ;; Below settings are mainly for setting fonts.
 
