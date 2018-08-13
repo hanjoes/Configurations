@@ -162,6 +162,15 @@ function identify_package_manager() {
 		EOF
 	fi
 	echo "Assuming package manager: ${PACKAGE_MANAGER}"
+
+	# Assuming "sudo" is installed on the machine.
+	# This assumption should be safe as if you are root, you won't need it anyways
+	# otherwise if you are not root, you should get sudoer's permission from the
+	# system administrator instead of installing sudo yourself.
+	if [ ! `id -u` = 0 ]
+	then
+		PACKAGE_MANAGER="sudo ${PACKAGE_MANAGER}"
+	fi
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
