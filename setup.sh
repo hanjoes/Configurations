@@ -27,7 +27,7 @@ function check_and_install_python() {
 	then
 		print_status "Installing Python"
 		$PACKAGE_MANAGER install python
-		python -V
+		python -V > /dev/null 2>&1
 		abort_if_fail
 	fi
 }
@@ -38,7 +38,7 @@ function check_and_install_git() {
 	then
 		print_status "Installing Git"
 		$PACKAGE_MANAGER install git
-		git --version
+		git --version > /dev/null 2>&1
 		abort_if_fail
 	fi
 }
@@ -49,7 +49,7 @@ function check_and_install_vim() {
 	then
 		print_status "Installing VIM"
 		$PACKAGE_MANAGER install vim
-		vim --version
+		vim --version > /dev/null 2>&1
 		abort_if_fail
 	fi
 }
@@ -60,7 +60,7 @@ function check_and_install_emacs() {
 	then
 		print_status "Installing Emacs"
 		$PACKAGE_MANAGER install emacs
-		emacs --version
+		emacs --version > /dev/null 2>&1
 		abort_if_fail
 	fi
 }

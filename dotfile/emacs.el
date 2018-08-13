@@ -1,3 +1,6 @@
+(load "~/Configurations/dotfile/package_check")
+(initialize-my-packages)
+
 ;; ========= E n v i r o n m e n t =========
 ;; PATH
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
@@ -9,16 +12,13 @@
 (global-linum-mode 1)
 
 ;; package manager
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
 
 ;; better UI
 (if (display-graphic-p)
-	((menu-bar-mode -1)
-	 (tool-bar-mode -1)
-	 (scroll-bar-mode -1)
-	 (horizontal-scroll-bar-mode -1)))
+    (progn (menu-bar-mode -1)
+	   (tool-bar-mode -1)
+	   (scroll-bar-mode -1)
+	   (horizontal-scroll-bar-mode -1)))
 
 ;; tab settings
 (setq-default indent-tabs-mode t)
