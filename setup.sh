@@ -22,7 +22,7 @@ function abort_if_fail() {
 }
 
 function check_and_install_python() {
-	python -V
+	python -V > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
 		print_status "Installing Python"
@@ -33,7 +33,7 @@ function check_and_install_python() {
 }
 
 function check_and_install_git() {
-	git --version
+	git --version > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
 		print_status "Installing Git"
@@ -44,7 +44,7 @@ function check_and_install_git() {
 }
 
 function check_and_install_vim() {
-	vim --version
+	vim --version > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
 		print_status "Installing VIM"
@@ -55,7 +55,7 @@ function check_and_install_vim() {
 }
 
 function check_and_install_emacs() {
-	emacs --version
+	emacs --version > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
 		print_status "Installing Emacs"
