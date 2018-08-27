@@ -4,7 +4,7 @@
 ;; ========= E n v i r o n m e n t =========
 ;; PATH
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-(setenv "GOPATH" (concat "/Users/hanzhos/workspace/HanjoesPlayground/build/HanjoesTestGoPackage/HanjoesTestGoPackage-1.0/RHEL5_64/DEV.STD.PTHREAD/build/private/tmp/brazil-path/testrun.runtimefarm/gopath/:/Users/hanzhos/workspace/HanjoesPlayground/src/HanjoesTestGoPackage/" (getenv "OPATH")))
+(setenv "GOPATH" (concat "/Users/hanzhos/workspace/HanjoesPlayground/build/HanjoesTestGoPackage/HanjoesTestGoPackage-1.0/RHEL5_64/DEV.STD.PTHREAD/build/private/tmp/brazil-path/testrun.runtimefarm/gopath/:/Users/hanzhos/workspace/HanjoesPlayground/src/HanjoesTestGoPackage/" (getenv "GOPATH")))
 
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/go/bin/")
@@ -80,6 +80,7 @@
                 (font-lock-mode 1))))
 
 ;; golang
+(setq gofmt-command "goimports")
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; ========= A p p e a r a n c e =========
