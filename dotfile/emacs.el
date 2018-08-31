@@ -82,6 +82,9 @@
 ;; golang
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook #'gofmt-before-save)
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; ========= A p p e a r a n c e =========
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
@@ -106,4 +109,4 @@
 	("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default)))
  '(package-selected-packages
    (quote
-	(yaml-mode sublime-themes pkg-info neotree markdown-preview-eww markdown-mode let-alist hlinum go-mode evil elpy company-tern company-ghc ac-octave))))
+	(go-autocomplete yaml-mode sublime-themes pkg-info neotree markdown-preview-eww markdown-mode let-alist hlinum go-mode evil elpy company-tern company-ghc ac-octave))))
