@@ -2,12 +2,6 @@
 (initialize-my-packages)
 
 ;; ========= E n v i r o n m e n t =========
-;; PATH
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-(setenv "GOPATH" (concat "/Users/hanzhos/workspace/HanjoesPlayground/build/HanjoesTestGoPackage/HanjoesTestGoPackage-1.0/RHEL5_64/DEV.STD.PTHREAD/build/private/tmp/brazil-path/testrun.runtimefarm/gopath/:/Users/hanzhos/workspace/HanjoesPlayground/src/HanjoesTestGoPackage/" (getenv "GOPATH")))
-
-(add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "~/go/bin/")
 
 (global-linum-mode 1)
 
@@ -86,19 +80,13 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-;; ========= A p p e a r a n c e =========
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(if (display-graphic-p)
-	(load-theme 'spolsky))
-
-;; Below settings are mainly for setting fonts.
-
+;; ========= G e n e r a t e d =========
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Source Code Pro for Powerline")))))
+ '(default ((t (:height 140 :family "Source Code Pro for Powerline")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -106,7 +94,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-	("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default)))
- '(package-selected-packages
-   (quote
-	(go-autocomplete yaml-mode sublime-themes pkg-info neotree markdown-preview-eww markdown-mode let-alist hlinum go-mode evil elpy company-tern company-ghc ac-octave))))
+	("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))))
+
+
+;; ========= A p p e a r a n c e =========
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(if (display-graphic-p)
+	(load-theme 'spolsky))

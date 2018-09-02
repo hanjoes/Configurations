@@ -20,7 +20,7 @@ PROMPT_COMMAND='PS1="`python ~/Configurations/neat-prompt/generate.py`"'
 #==============================================================================
 
 # For go this needs to go before where it's used
-export GOPATH="/Users/hanjoes/Documents/go/"
+export GOPATH=/Users/hanjoes/Documents/go/
 
 # PATH
 export PATH=$PATH:\
@@ -95,8 +95,5 @@ set -o emacs
 # Prevent terminal input from overriding prompt
 # (by calculating the wrong window size)
 shopt -s checkwinsize
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 source 1
