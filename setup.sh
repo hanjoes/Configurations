@@ -105,6 +105,13 @@ function check_and_install_neat_prompt() {
 	source $HOME/.bashrc
 }
 
+function check_and_install_pyenv() {
+	if [ ! -d $HOME/.pyenv ]
+	then
+		git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+	fi
+}
+
 function setup_git() {
 	git config --global alias.co checkout
 	git config --global alias.br branch
