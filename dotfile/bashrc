@@ -55,12 +55,6 @@ export EDITOR=vim
 ulimit -c unlimited
 
 #==============================================================================
-# For pyenv to work
-#==============================================================================
-eval "$(pyenv init -)"
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-#==============================================================================
 # Aliases
 #==============================================================================
 alias ll='ls -Gl'
@@ -97,4 +91,14 @@ set -o emacs
 # (by calculating the wrong window size)
 shopt -s checkwinsize
 
+#==============================================================================
+# Secrets
+#==============================================================================
+
 source $HOME/.secret/1
+
+#==============================================================================
+# For pyenv to work, this must be after the secrets as this manipulates PATH.
+#==============================================================================
+eval "$(pyenv init -)"
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
