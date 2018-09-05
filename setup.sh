@@ -203,6 +203,7 @@ check_and_install_config
 check_and_install_neat_prompt
 check_and_install_vim
 check_and_install_emacs
+check_and_install_pyenv
 
 setup_secret
 setup_git
