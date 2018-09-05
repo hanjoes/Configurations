@@ -6,7 +6,7 @@
 # sources /etc/bash.bashrc).
 #==============================================================================
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+   . /etc/bash_completion
 fi
 
 #==============================================================================
@@ -21,6 +21,7 @@ PROMPT_COMMAND='PS1="`python ~/Configurations/neat-prompt/generate.py`"'
 
 # For go this needs to go before where it's used
 export GOPATH=/Users/hanjoes/Documents/go/
+export GOBIN=/Users/hanjoes/Documents/go/bin/
 
 # PATH
 export PATH=$PATH:\
@@ -31,7 +32,7 @@ export PATH=$PATH:\
 /usr/local/bin:\
 /apollo/env/SDETools/bin:\
 /Users/hanzhos/Library/Android/sdk/platform-tools:\
-$(go env GOPATH)/bin
+$GOBIN
 
 # JAVA_HOME for Intellij
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/
@@ -96,4 +97,4 @@ set -o emacs
 # (by calculating the wrong window size)
 shopt -s checkwinsize
 
-source 1
+source $HOME/.secret/1

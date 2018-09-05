@@ -3,6 +3,7 @@
 PACKAGE_MANAGER=''
 CONFIG_HOME="${HOME}/Configurations"
 VIM_HOME="${HOME}/.vim"
+SECRET_HOME="${HOME}/.secret"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Function definitions 
@@ -121,22 +122,31 @@ function setup_vim() {
 	cd $PATHEGEN_BUNDLE
 
 	# install color theme solarized
-	if [ -d $PATHEGEN_BUNDLE/vim-colors-solarized ]
+	if [ ! -d $PATHEGEN_BUNDLE/vim-colors-solarized ]
 	then
 		git clone git://github.com/altercation/vim-colors-solarized.git
 	fi
 
 	# install nerdtree
-	if [ -d $PATHEGEN_BUNDLE/nerdtree ]
+	if [ ! -d $PATHEGEN_BUNDLE/nerdtree ]
 	then
 		git clone https://github.com/scrooloose/nerdtree.git
 	fi
 
 	# install vim-airline
-	if [ -d $PATHEGEN_BUNDLE/vim-airline ]
+	if [ ! -d $PATHEGEN_BUNDLE/vim-airline ]
 	then
 		git clone https://github.com/vim-airline/vim-airline
 	fi
+}
+
+function setup_secret() {
+	cd $HOME
+	if [ -d $SECRET_HOME ]
+	then
+		rm -rf $SECRET_HOME
+	fi
+	git clone https://github.com/hanjoes/secret-stuff.git $SECRET_HOME
 }
 
 function identify_package_manager() {
@@ -187,6 +197,7 @@ check_and_install_neat_prompt
 check_and_install_vim
 check_and_install_emacs
 
+setup_secret
 setup_git
 setup_vim
 
