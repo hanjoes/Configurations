@@ -209,3 +209,14 @@ setup_secret
 setup_git
 setup_vim
 
+# TODO: elpy needs to be setup. jedi, rope, flake8 etc...
+# Either of these
+# pip install rope
+# pip install jedi
+# flake8 for code checks
+# pip install flake8
+# and autopep8 for automatic PEP8 formatting
+# pip install autopep8
+# and yapf for code formatting
+# pip install yapf
+

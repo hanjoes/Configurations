@@ -57,6 +57,11 @@
 (elpy-enable)
 (setq elpy-rpc-backend "jedi")
 
+;; rpc python 
+(setq elpy-rpc-python-command "python3")
+;; for interactive shell
+(setq python-shell-interpreter "python3")
+
 ;; octave
 (require 'ac-octave)
 (add-hook 'octave-mode-hook
@@ -99,7 +104,7 @@
 	("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default)))
  '(package-selected-packages
    (quote
-	(golint yaml-mode sublime-themes pkg-info neotree markdown-preview-eww markdown-mode let-alist hlinum go-mode go-autocomplete evil elpy company-tern company-ghc ac-octave))))
+	(golint yaml-mode sublime-themes pkg-info neotree markdown-preview-eww markdown-mode let-alist hlinum go-mode go-autocomplete evil company-tern company-ghc ac-octave))))
 
 
 ;; ========= A p p e a r a n c e =========
