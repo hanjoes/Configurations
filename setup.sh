@@ -82,10 +82,16 @@ function check_and_install_config() {
 
 function check_links() {
 	print_status "Checking links."
+	if [ ! -d $HOME/.config ]
+	then
+		mkdir $HOME/.config
+	fi
+	
 	check_link $CONFIG_HOME/dotfile/bashrc $HOME/.bashrc
 	check_link $CONFIG_HOME/dotfile/vimrc $HOME/.vimrc
 	check_link $CONFIG_HOME/dotfile/emacs.el $HOME/.emacs
 	check_link $CONFIG_HOME/vim $HOME/.vim
+	check_link $CONFIG_HOME/dotfile/flake8 $HOME/.config/flake8
 }
 
 function check_link() {
