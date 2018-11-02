@@ -163,34 +163,47 @@ function setup_secret() {
 }
 
 function identify_package_manager() {
-	DISTRO=`cat /etc/os-release | grep '^ID=' | cut -d= -f2` 
-	if [ -n $DISTRO ]
-	then
-		print_status "Detected Linux distro: ${DISTRO}"
-		case $DISTRO in
-			"debian")
-				PACKAGE_MANAGER='apt-get'
-				;;
-			"fedora")
-				PACKAGE_MANAGER='yum'
-				;;
-			*)
-				print_status "Unrecognized Linux distro: ${DISTRO}"
-				exit -1
-				;;
-		esac
-	else
-		read -e -d  PACKAGE_MANAGER <<- EOF
-		"Cannot detect system type, please specify package manager (yum/brew/apt-get): "
-		EOF
-	fi
+	OS=`uname`
+	echo "Operating system: ${OS}"
+	case $OS in
+		"Linux")
+			DISTRO=`cat /etc/os-release | grep '^ID=' | cut -d= -f2` 
+			if [ -n $DISTRO ]
+			then
+				print_status "Detected Linux distro: ${DISTRO}"
+				case $DISTRO in
+					"debian")
+						PACKAGE_MANAGER='apt-get'
+						;;
+					"fedora")
+						PACKAGE_MANAGER='yum'
+						;;
+					*)
+						print_status "Unrecognized Linux distro: ${DISTRO}"
+						exit -1
+						;;
+				esac
+			else
+				read -e -d  PACKAGE_MANAGER <<- EOF
+				"Cannot detect system type, please specify package manager (yum/brew/apt-get): "
+				EOF
+			fi
+			;;
+		"Darwin")
+			PACKAGE_MANAGER='brew'
+			;;
+		*)
+			print_status "Unsupported OS type: ${OS}"
+			exit -1
+			;;
+	esac
 	echo "Assuming package manager: ${PACKAGE_MANAGER}"
 
 	# Assuming "sudo" is installed on the machine.
 	# This assumption should be safe as if you are root, you won't need it anyways
 	# otherwise if you are not root, you should get sudoer's permission from the
 	# system administrator instead of installing sudo yourself.
-	if [ ! `id -u` = 0 ]
+	if [ ! `id -u` = 0 ] && [ $PACKAGE_MANAGER != 'brew' ]
 	then
 		PACKAGE_MANAGER="sudo ${PACKAGE_MANAGER}"
 	fi
@@ -203,17 +216,17 @@ function identify_package_manager() {
 identify_package_manager
 $PACKAGE_MANAGER update
 
-check_and_install_python
-check_and_install_git
-check_and_install_config
-check_and_install_neat_prompt
-check_and_install_vim
-check_and_install_emacs
-check_and_install_pyenv
+# check_and_install_python
+# check_and_install_git
+# check_and_install_config
+# check_and_install_neat_prompt
+# check_and_install_vim
+# check_and_install_emacs
+# check_and_install_pyenv
 
-setup_secret
-setup_git
-setup_vim
+# setup_secret
+# setup_git
+# setup_vim
 
 # TODO: elpy needs to be setup. jedi, rope, flake8 etc...
 # Either of these
