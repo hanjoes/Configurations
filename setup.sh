@@ -6,12 +6,12 @@ VIM_HOME="${HOME}/.vim"
 SECRET_HOME="${HOME}/.secret"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Function definitions 
+# Function definitions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function print_status() {
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo $1 
+	echo $1
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 }
 
@@ -56,17 +56,6 @@ function check_and_install_vim() {
 	fi
 }
 
-function check_and_install_emacs() {
-	emacs --version > /dev/null 2>&1
-	if [ $? -ne 0 ]
-	then
-		print_status "Installing Emacs"
-		$PACKAGE_MANAGER install emacs
-		emacs --version > /dev/null 2>&1
-		abort_if_fail
-	fi
-}
-
 function check_and_install_config() {
 	print_status "Checking ${CONFIG_HOME} exists."
 	if [ ! -d $CONFIG_HOME ]
@@ -86,16 +75,15 @@ function check_links() {
 	then
 		mkdir $HOME/.config
 	fi
-	
+
 	check_link $CONFIG_HOME/dotfile/bashrc $HOME/.bashrc
 	check_link $CONFIG_HOME/dotfile/vimrc $HOME/.vimrc
-	check_link $CONFIG_HOME/dotfile/emacs.el $HOME/.emacs
 	check_link $CONFIG_HOME/vim $HOME/.vim
 	check_link $CONFIG_HOME/dotfile/flake8 $HOME/.config/flake8
 }
 
 function check_link() {
-	if [ \( -d $2 \) -o \( -f $2 \) ] 
+	if [ \( -d $2 \) -o \( -f $2 \) ]
 	then
 		rm -rf $2
 	fi
@@ -167,7 +155,7 @@ function identify_package_manager() {
 	echo "Operating system: ${OS}"
 	case $OS in
 		"Linux")
-			DISTRO=`cat /etc/os-release | grep '^ID=' | cut -d= -f2` 
+			DISTRO=`cat /etc/os-release | grep '^ID=' | cut -d= -f2`
 			if [ -n $DISTRO ]
 			then
 				print_status "Detected Linux distro: ${DISTRO}"
@@ -221,7 +209,6 @@ $PACKAGE_MANAGER update
 # check_and_install_config
 # check_and_install_neat_prompt
 # check_and_install_vim
-# check_and_install_emacs
 # check_and_install_pyenv
 
 # setup_secret
