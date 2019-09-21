@@ -12,7 +12,6 @@ SECRET_HOME="${HOME}/.secret"
 function print_status() {
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo $1
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 }
 
 function abort_if_fail() {
@@ -79,7 +78,6 @@ function check_links() {
 	check_link $CONFIG_HOME/dotfile/bashrc $HOME/.bashrc
 	check_link $CONFIG_HOME/dotfile/vimrc $HOME/.vimrc
 	check_link $CONFIG_HOME/vim $HOME/.vim
-	check_link $CONFIG_HOME/dotfile/flake8 $HOME/.config/flake8
 }
 
 function check_link() {
@@ -91,20 +89,9 @@ function check_link() {
 	ln -s $1 $2
 }
 
-function check_and_install_neat_prompt() {
-	if [ ! -d $CONFIG_HOME/neat-prompt ]
-	then
-		git clone https://github.com/hanjoes/neat-prompt.git $CONFIG_HOME/neat-prompt
-	fi
-	source $HOME/.bashrc
-}
-
-function check_and_install_pyenv() {
-	if [ ! -d $HOME/.pyenv ]
-	then
-		git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
-	fi
-}
+# function check_and_install_neat_prompt() {
+    # should use the installation mechanism in neat_prompt.
+# }
 
 function setup_git() {
 	git config --global alias.co checkout
@@ -126,18 +113,6 @@ function setup_vim() {
 	if [ ! -d $PATHEGEN_BUNDLE/vim-colors-solarized ]
 	then
 		git clone git://github.com/altercation/vim-colors-solarized.git
-	fi
-
-	# install nerdtree
-	if [ ! -d $PATHEGEN_BUNDLE/nerdtree ]
-	then
-		git clone https://github.com/scrooloose/nerdtree.git
-	fi
-
-	# install vim-airline
-	if [ ! -d $PATHEGEN_BUNDLE/vim-airline ]
-	then
-		git clone https://github.com/vim-airline/vim-airline
 	fi
 }
 
@@ -204,25 +179,11 @@ function identify_package_manager() {
 identify_package_manager
 $PACKAGE_MANAGER update
 
-# check_and_install_python
-# check_and_install_git
-# check_and_install_config
-# check_and_install_neat_prompt
-# check_and_install_vim
-# check_and_install_pyenv
+check_and_install_python
+check_and_install_git
+check_and_install_config
+check_and_install_vim
 
-# setup_secret
-# setup_git
-# setup_vim
-
-# TODO: elpy needs to be setup. jedi, rope, flake8 etc...
-# Either of these
-# pip install rope
-# pip install jedi
-# flake8 for code checks
-# pip install flake8
-# and autopep8 for automatic PEP8 formatting
-# pip install autopep8
-# and yapf for code formatting
-# pip install yapf
-
+setup_git
+setup_vim
+setup_secret
