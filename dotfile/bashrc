@@ -13,7 +13,7 @@ fi
 # Setup prompt to using neat-prompt
 #==============================================================================
 
-PROMPT_COMMAND='/Users/hanzhos/Documents/github/swift-prompt/.build/debug/swift_prompt'
+PROMPT_COMMAND='/Users/hanjoes/Documents/github/hanjoes/swift-prompt/.build/debug/swift_prompt'
 PS1="> "
 
 #==============================================================================
@@ -108,10 +108,3 @@ shopt -s checkwinsize
 #==============================================================================
 
 source $HOME/.secret/1
-
-#==============================================================================
-# For pyenv to work, this must be after the secrets as this manipulates PATH.
-#==============================================================================
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
