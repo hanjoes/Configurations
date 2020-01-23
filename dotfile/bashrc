@@ -13,40 +13,27 @@ fi
 # Setup prompt to using neat-prompt
 #==============================================================================
 
-PROMPT_COMMAND='/Users/hanjoes/Documents/github/hanjoes/swift-prompt/.build/debug/swift_prompt'
-PS1="> "
+#PROMPT_COMMAND='/Users/hanjoes/Documents/github/hanjoes/swift-prompt/.build/debug/swift_prompt'
+#PS1="> "
+set_bash_prompt(){
+    PS1="\u@\h $> "
+}
+
+PROMPT_COMMAND=set_bash_prompt
 
 #==============================================================================
 # Some important environment variables.
 #==============================================================================
 
-# For go this needs to go before where it's used
-export GOPATH=/Users/hanjoes/Documents/go/
-export GOBIN=/Users/hanjoes/Documents/go/bin/
-
 # PATH
 export PATH=$PATH:\
-/usr/local/apache-maven-3.2.3/bin:\
-/usr/local/gcc-arm-none-eabi-4_9-2015q1/bin:\
 /opt/local/bin:\
-/Users/hanjoes/Library/Android/sdk/platform-tools:\
-/usr/local/bin:\
-/apollo/env/SDETools/bin:\
-/Users/hanzhos/Library/Android/sdk/platform-tools:\
-$GOBIN
-
-# JAVA_HOME for Intellij
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/
-
-# JAVA classpath system-wide
-export CLASSPATH=.:\
-~/.m2/repository/org/antlr/antlr4/4.7.1-SNAPSHOT/antlr4-4.7.1-SNAPSHOT-complete.jar:\
-/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/lib/tools.jar
+/usr/local/bin
 
 # For tmux
 export TERM='screen-256color' 
 
-# For emacs as the default editor
+# For vim as the default editor
 export ALTERNATE_EDITOR=""
 export EDITOR=vim
 
@@ -58,29 +45,16 @@ ulimit -c unlimited
 #==============================================================================
 # Aliases
 #==============================================================================
-alias ll='ls -Gl'
-alias la='ls -Ga'
-alias ls='ls -G'
-alias antlr4='java -jar ~/.m2/repository/org/antlr/antlr4/4.7.1-SNAPSHOT/antlr4-4.7.1-SNAPSHOT-complete.jar'
-alias grun='java org.antlr.v4.gui.TestRig'
-alias rp='screen /dev/cu.usbserial 115200l'
+alias ll='ls -Gl --color=auto'
+alias la='ls -Ga --color=auto'
+alias ls='ls -G --color=auto'
 alias j='java'
 alias jc='javac'
 alias sb='source ~/.bashrc'
 alias tmux='tmux -2'
+alias ..='cd ..'
+alias ...='cd ../..'
 
-
-alias bb="brazil-build"
-alias bbb="brazil-build build"
-alias bbc="brazil-build clean"
-alias bbs="brazil-build server"
-alias bws="brazil ws sync"
-alias bwsm="brazil ws sync -md"
-alias rbbc="brazil-recursive-cmd --allPackages --reverse \'brazil-build clean\'"
-alias rbb="brazil-recursive-cmd --allPackages brazil-build"
-alias rbbb="brazil-recursive-cmd --allPackages \'brazil-build build\'"
-
-alias brazil-pycharm="brazil-python-env testrun open '/Applications/PyCharm CE.app'"
 #==============================================================================
 # Set vim as default pager:
 #==============================================================================

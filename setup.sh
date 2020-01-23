@@ -22,17 +22,6 @@ function abort_if_fail() {
 	fi
 }
 
-function check_and_install_python() {
-	python -V > /dev/null 2>&1
-	if [ $? -ne 0 ]
-	then
-		print_status "Installing Python"
-		$PACKAGE_MANAGER install python
-		python -V > /dev/null 2>&1
-		abort_if_fail
-	fi
-}
-
 function check_and_install_git() {
 	git --version > /dev/null 2>&1
 	if [ $? -ne 0 ]
@@ -40,17 +29,6 @@ function check_and_install_git() {
 		print_status "Installing Git"
 		$PACKAGE_MANAGER install git
 		git --version > /dev/null 2>&1
-		abort_if_fail
-	fi
-}
-
-function check_and_install_vim() {
-	vim --version > /dev/null 2>&1
-	if [ $? -ne 0 ]
-	then
-		print_status "Installing VIM"
-		$PACKAGE_MANAGER install vim
-		vim --version > /dev/null 2>&1
 		abort_if_fail
 	fi
 }
@@ -76,8 +54,6 @@ function check_links() {
 	fi
 
 	check_link $CONFIG_HOME/dotfile/bashrc $HOME/.bashrc
-	check_link $CONFIG_HOME/dotfile/vimrc $HOME/.vimrc
-	check_link $CONFIG_HOME/vim $HOME/.vim
 }
 
 function check_link() {
@@ -100,22 +76,6 @@ function setup_git() {
 	git config --global alias.st status
 }
 
-function setup_vim() {
-	# i added pathegen.vim to version control, so there is no need for
-	# the line below
-	#
-	# curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-	PATHEGEN_BUNDLE=$VIM_HOME/bundle
-	cd $PATHEGEN_BUNDLE
-
-	# install color theme solarized
-	if [ ! -d $PATHEGEN_BUNDLE/vim-colors-solarized ]
-	then
-		git clone git://github.com/altercation/vim-colors-solarized.git
-	fi
-}
-
 function setup_secret() {
 	cd $HOME
 	if [ -d $SECRET_HOME ]
@@ -135,7 +95,7 @@ function identify_package_manager() {
 			then
 				print_status "Detected Linux distro: ${DISTRO}"
 				case $DISTRO in
-					"debian")
+					"debian"|"ubuntu")
 						PACKAGE_MANAGER='apt-get'
 						;;
 					"fedora")
@@ -179,11 +139,9 @@ function identify_package_manager() {
 identify_package_manager
 $PACKAGE_MANAGER update
 
-check_and_install_python
+
 check_and_install_git
 check_and_install_config
-check_and_install_vim
 
 setup_git
-setup_vim
 setup_secret
